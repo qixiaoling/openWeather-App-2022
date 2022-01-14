@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 function SearchBar ({setLocationBar}) {
     const [query, setQuery] = useState('');
 
-    function handleOnClick () {
+    function handleOnClick (e) {
+        e.preventDefault();//this was the reden nothing was rendered out!!!
         console.log(query);
         setLocationBar(query);
 
