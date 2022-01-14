@@ -2,7 +2,7 @@ import React, {useState, useEffect, useDebugValue} from 'react';
 import './App.css';
 import SearchBar from "./Component/SearchBar/SearchBar";
 import axios from "axios";
-import Forecasts from "./Component/Forecasts/Forecasts";
+import Forecasts from "./Page/Forecasts/Forecasts";
 
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
