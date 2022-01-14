@@ -8,7 +8,7 @@ import Forecasts from "./Page/Forecasts/Forecasts";
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
 function App() {
-    const [weatherData, setWeatherData] = useState({});
+    const [weatherData, setWeatherData] = useState({});//is object that contains data
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
 

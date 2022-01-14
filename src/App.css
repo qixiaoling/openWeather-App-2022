@@ -1,3 +1,13 @@
-.App {
-    background-color: orange;
+.app-container {
+    width: 65vw;
+    height: 75vh;
+    margin: auto auto;
+    background-image: url(./Assets/Image/pexels-sunsetoned-7283618.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.app-content {
+    width: 100%;
+    margin: 0 auto;
+
 }
