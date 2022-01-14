@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useDebugValue} from 'react';
 import './App.css';
-// import SearchBar from "./Component/SearchBar";
+import SearchBar from "./Component/SearchBar";
 import axios from "axios";
-// import SearchBar from "./Component/SearchBar";
+
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -11,11 +11,11 @@ function App() {
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
 
-    function handleChange(e) {
-        e.preventDefault();
-        setLocation(e.currentTarget.value);
-    }
-
+    useEffect(()=>{
+        if(location) {
+            fetchDataWeather();
+        }
+    },[location])
 
     async function fetchDataWeather() {
         setLoading(true);
@@ -34,10 +34,7 @@ function App() {
 
     return (
         <div className="App-container">
-
-                <input type="text" value={location} onChange={handleChange}/>
-                <button onClick={fetchDataWeather}>Go</button>
-
+            <SearchBar setLocationBar={setLocation}/>
         </div>
     );
 }
