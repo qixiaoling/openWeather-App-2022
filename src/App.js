@@ -6,6 +6,8 @@ import Forecasts from "./Page/Forecasts/Forecasts";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import CurrentDay from "./Page/CurrentDay/CurrentDay";
 import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
+import TEST from "./Page/Test/Test";
+import TESTing from "./Page/Test/Test";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -60,10 +62,10 @@ function App() {
                     <div className='app-bottom'>
                         <TabBarMenu/>
                         <Switch>
-                            <Route to='/' exact={true}>
+                            <Route path='/' exact={true}>
                                 <CurrentDay/>
                             </Route>
-                            <Route to='/coming-week' exact={true}>
+                            <Route path='/coming-week' exact={true}>
                                 <Forecasts coordinates={weatherData && weatherData.coord}/>
                             </Route>
                         </Switch>
