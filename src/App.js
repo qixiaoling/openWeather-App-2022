@@ -3,7 +3,9 @@ import './App.css';
 import SearchBar from "./Component/SearchBar/SearchBar";
 import axios from "axios";
 import Forecasts from "./Page/Forecasts/Forecasts";
-
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import CurrentDay from "./Page/CurrentDay/CurrentDay";
+import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -13,11 +15,11 @@ function App() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
-    useEffect(()=>{
-        if(location) {
+    useEffect(() => {
+        if (location) {
             fetchDataWeather();
         }
-    },[location])
+    }, [location])
 
     async function fetchDataWeather() {
         setLoading(true);
@@ -35,17 +37,16 @@ function App() {
     }
 
 
-
-
     return (
-        <div className="app-container">
+        <>
+            <div className="app-container">
 
                 <div className='app-top'>
                     <SearchBar setLocationBar={setLocation}/>
                     {error && <span>Oops! This city does not exist.</span>}
                     {loading && <span>Loading...</span>}
                     <div className='current-data'>
-                        {Object.keys(weatherData).length>0 &&
+                        {Object.keys(weatherData).length > 0 &&
                         <>
                             <h3>{weatherData.weather[0].description}</h3>
                             <p>{weatherData.name}</p>
@@ -54,13 +55,25 @@ function App() {
                         }
                     </div>
                 </div>
-                <div className='app-bottom'>
-                    <Forecasts coordinates = {weatherData && weatherData.coord}/>
-                </div>
 
+                <Router>
+                    <div className='app-bottom'>
+                        <TabBarMenu/>
+                        <Switch>
+                            <Route to='/' exact={true}>
+                                <CurrentDay/>
+                            </Route>
+                            <Route to='/coming-week' exact={true}>
+                                <Forecasts coordinates={weatherData && weatherData.coord}/>
+                            </Route>
+                        </Switch>
+                    </div>
+                </Router>
 
+            </div>
 
-        </div>
+        </>
+
     );
 }
 
