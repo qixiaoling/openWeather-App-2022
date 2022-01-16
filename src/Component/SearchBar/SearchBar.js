@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './SearchBar.css';
 
 function SearchBar ({setLocationBar}) {
     const [query, setQuery] = useState('');
@@ -17,7 +18,7 @@ function SearchBar ({setLocationBar}) {
                   value={query}
                   onChange={(e)=>setQuery(e.currentTarget.value)}
            />
-            <button onClick={handleOnClick}>GO!</button>
+            <button className='btn search-btn' onClick={handleOnClick}>GO!</button>
         </form>
     )
 }

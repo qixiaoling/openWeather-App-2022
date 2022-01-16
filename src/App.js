@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useDebugValue} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import SearchBar from "./Component/SearchBar/SearchBar";
 import axios from "axios";
@@ -11,6 +11,7 @@ function App() {
     const [weatherData, setWeatherData] = useState({});//is object that contains data
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(()=>{
         if(location) {
@@ -20,14 +21,17 @@ function App() {
 
     async function fetchDataWeather() {
         setLoading(true);
+        setError(false);
         try {
             const result = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location},nl&appid=${apiMonkey}&lang=nl`);
             console.log(result.data);
             setWeatherData(result.data);
         } catch (e) {
             console.error(e);
+            setError(true);
         }
         setLocation(false);
+        setLoading(false);
     }
 
 
@@ -35,15 +39,17 @@ function App() {
 
     return (
         <div className="app-container">
-            <div className='app-content'>
+
                 <div className='app-top'>
                     <SearchBar setLocationBar={setLocation}/>
+                    {error && <span>Oops! This city does not exist.</span>}
+                    {loading && <span>Loading...</span>}
                     <div className='current-data'>
                         {Object.keys(weatherData).length>0 &&
                         <>
-                            <h2>{weatherData.weather[0].description}</h2>
+                            <h3>{weatherData.weather[0].description}</h3>
                             <p>{weatherData.name}</p>
-                            <p>{weatherData.main.temp}</p>
+                            <p className="current-temp">{weatherData.main.temp}</p>
                         </>
                         }
                     </div>
@@ -53,7 +59,6 @@ function App() {
                 </div>
 
 
-            </div>
 
         </div>
     );
