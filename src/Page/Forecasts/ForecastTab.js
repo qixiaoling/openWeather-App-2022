@@ -4,7 +4,7 @@ import {createDateString} from "../../helper/createDateString";
 import {kelvinToCelsius} from "../../helper/kelvinToCelsius";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
-function Forecasts({coordinates}) {
+function ForecastTab({coordinates}) {
     const [forecastData, setForecastData] = useState([]);//is array
     const [error, setError] = useState(false);
     useEffect(()=>{
@@ -46,4 +46,4 @@ function Forecasts({coordinates}) {
 
     )
 }
-export default Forecasts;
+export default ForecastTab;

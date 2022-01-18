@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import SearchBar from "./Component/SearchBar/SearchBar";
 import axios from "axios";
-import Forecasts from "./Page/Forecasts/Forecasts";
+import ForecastTab from "./Page/Forecasts/ForecastTab";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import CurrentDay from "./Page/CurrentDay/CurrentDay";
+import TodayTab from "./Page/TodayTab/TodayTab";
 import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
 import {kelvinToCelsius} from "./helper/kelvinToCelsius";
 
@@ -62,10 +62,10 @@ function App() {
                         <TabBarMenu/>
                         <Switch>
                             <Route path='/today' exact={true}>
-                                <CurrentDay coordinates={weatherData && weatherData.coord}/>
+                                <TodayTab coordinates={weatherData && weatherData.coord}/>
                             </Route>
                             <Route path='/coming-week' exact={true}>
-                                <Forecasts coordinates={weatherData && weatherData.coord}/>
+                                <ForecastTab coordinates={weatherData && weatherData.coord}/>
                             </Route>
                         </Switch>
                     </div>
