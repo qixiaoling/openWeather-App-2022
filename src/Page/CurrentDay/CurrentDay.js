@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import {kelvinToCelsius} from "../../helper/kelvinToCelsius";
+import IconMapper from "../../helper/iconMapper";
+import createTimeString from "../../helper/createTimeString";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -39,18 +41,25 @@ function CurrentDay({coordinates}) {
     }
 
     return (
-        <>
+        <div className='currentDay-container'>
+
             {currentData.map((hour) => {
                 return (
-                    <article key={hour.dt}>
-                        <p>{kelvinToCelsius(hour.temp)}</p>
-                        <p>{hour.weather[0].main}</p>
-                        <p>{hour.weather[0].description}</p>
+                    <article key={hour.dt} className='single-hour'>
+                        <div className='hour-data'>
+                            <p>{kelvinToCelsius(hour.temp)}</p>
+                            <p>{IconMapper(hour.weather[0].main)}</p>
+                            <p>{hour.weather[0].description}</p>
+                        </div>
+                        <div className='hour'>
+                            <p>{createTimeString(hour.dt)}</p>
+                        </div>
+
                     </article>
                 )
             })}
 
-        </>
+        </div>
     )
 }
 
