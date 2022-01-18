@@ -1,0 +1,28 @@
+.tab-bar {
+    width: 100%;
+    display: flex;
+}
+ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+li{
+    list-style: none;
+    margin-right: 1.5rem;
+}
+.tab-link a,
+.tab-link a:visited{
+    text-decoration: none;
+    color: var(--clr-light);
+    font-weight: 600;
+    padding: 0 0 16px 0;
+    cursor: pointer;
+
+}
+.tab-link a.pinda{
+    /*used NavLink with activeClassName property*/
+    color: var(--clr-pink);
+    border-bottom: 1px solid var(--clr-pink);
+}
+

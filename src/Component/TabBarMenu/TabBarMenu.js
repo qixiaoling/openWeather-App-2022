@@ -1,19 +1,21 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import "./TabBarMenu.css";
 
 function TabBarMenu() {
     return(
         <nav className='tab-bar'>
             <ul>
-                <li>
-                    <Link to="/" >
+                <li className='tab-link'>
+                    <NavLink to="/today" activeClassName='pinda'>
+                        {/*you can also write active, maybe better*/}
                         Today
-                    </Link>
+                    </NavLink>
                 </li>
-                <li>
-                    <Link to='/coming-week'>
+                <li className='tab-link'>
+                    <NavLink to='/coming-week'activeClassName='pinda'>
                         Coming Week
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
 

@@ -6,8 +6,7 @@ import Forecasts from "./Page/Forecasts/Forecasts";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import CurrentDay from "./Page/CurrentDay/CurrentDay";
 import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
-import TEST from "./Page/Test/Test";
-import TESTing from "./Page/Test/Test";
+import {kelvinToCelsius} from "./helper/kelvinToCelsius";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -52,7 +51,7 @@ function App() {
                         <>
                             <h3>{weatherData.weather[0].description}</h3>
                             <p>{weatherData.name}</p>
-                            <p className="current-temp">{weatherData.main.temp}</p>
+                            <p className="current-temp">{kelvinToCelsius(weatherData.main.temp)}</p>
                         </>
                         }
                     </div>
@@ -62,8 +61,8 @@ function App() {
                     <div className='app-bottom'>
                         <TabBarMenu/>
                         <Switch>
-                            <Route path='/' exact={true}>
-                                <CurrentDay/>
+                            <Route path='/today' exact={true}>
+                                <CurrentDay coordinates={weatherData && weatherData.coord}/>
                             </Route>
                             <Route path='/coming-week' exact={true}>
                                 <Forecasts coordinates={weatherData && weatherData.coord}/>

@@ -18,7 +18,7 @@ input {
 .search-btn {
     font-size: var(--fs-body);
     padding: 0.65rem;
-    background-color: var(--clr-orange);
+    background-color: var(--clr-pink);
     border: none;
     color: var(--clr-dark);
 }

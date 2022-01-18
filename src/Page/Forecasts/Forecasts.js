@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-
+import {createDateString} from "../../helper/createDateString";
+import {kelvinToCelsius} from "../../helper/kelvinToCelsius";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 function Forecasts({coordinates}) {
@@ -27,10 +28,7 @@ function Forecasts({coordinates}) {
 
     },[coordinates])
 
-    function transferToDay (timeStamp) {
-        const day = new Date (timeStamp * 1000);//seconds to milliseconds
-        return day.toLocaleDateString('nl-NL', {weekday: "long"});//translate to Maandag
-    }
+
     return(
         <>
             {error && <span>Oops! Something went wrong!</span>}
@@ -38,9 +36,9 @@ function Forecasts({coordinates}) {
             {forecastData.map((forecast)=>{
                 return(
                     <article key={forecast.dt}>
-                        <p>{transferToDay(forecast.dt)}</p>
+                        <p>{createDateString(forecast.dt)}</p>
                         <p>{forecast.weather[0].description}</p>
-                        <p>{forecast.temp.day}</p>
+                        <p>{kelvinToCelsius(forecast.temp.day)}</p>
                     </article>
                 )
             })}
