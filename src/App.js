@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './App.css';
 import SearchBar from "./Component/SearchBar/SearchBar";
 import axios from "axios";
@@ -8,6 +8,7 @@ import TodayTab from "./Page/TodayTab/TodayTab";
 import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
 import {kelvinToCelsius} from "./helper/kelvinToCelsius";
 import MetricSlider from "./Component/MetricSlider/MetricSlider";
+import {TempContext} from "./Context/TempContext";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -16,6 +17,7 @@ function App() {
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    // const {defineMethodsBasedOnSelectedMetric} = useContext(TempContext);
 
     useEffect(() => {
         if (location) {

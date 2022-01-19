@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {createDateString} from "../../helper/createDateString";
-import {kelvinToCelsius} from "../../helper/kelvinToCelsius";
 import './ForecastTab.css';
+import {TempContext} from "../../Context/TempContext";
+import {kelvinToCelsius} from "../../helper/kelvinToCelsius";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 function ForecastTab({coordinates}) {
     const [forecastData, setForecastData] = useState([]);//is array
     const [error, setError] = useState(false);
+    // const{defineMethodsBasedOnSelectedMetric} = useContext(TempContext)
     useEffect(()=>{
         async function fetchForecastData() {
             setError(false);

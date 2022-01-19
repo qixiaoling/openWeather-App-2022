@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from "axios";
 import createTimeString from "../../helper/createTimeString";
 import './TodayTab.css';
@@ -10,6 +10,7 @@ function TodayTab({coordinates}) {
     const [currentData, setCurrentData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+
     useEffect(() => {
         if (coordinates) {
             fetchCurrentData();
