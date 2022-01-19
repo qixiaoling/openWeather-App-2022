@@ -16,7 +16,7 @@ function TempContextProvider ({children}){
 
     return(
         <TempContext.Provider value = {{
-            toggleTemp: toggleTemp,
+            toggleTemp: toggleTemp,//LET OP! Do not write () as part of the function name, there will be re-rendering issues!!!
             kelvinToMetric: selectedMetric === 'celsius' ? kelvinToCelsius :
                 kelvinToFahrenheit,
         }}>
