@@ -1,0 +1,133 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+}
+:root {
+    --ff-primary: 'Montserrat', sans-serif;
+
+    --fw-reg: 400;
+    --fw-bold:700;
+    --fw-extra-bold: 900;
+
+    --clr-light: #fff;
+    --clr-light-background: #ECEEEE;
+    --clr-dark: #423c4a;
+    --clr-blue: #8dd3dd;
+    --clr-yellow: #f4b653;
+    --clr-orange: orange;
+    --clr-pink: #cd8ea1;
+
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.25rem;
+    --fs-h3: 1.75rem;
+    --fs-h4: 1.50rem;
+    --fs-body: 1rem;
+
+    --bs-soft: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    --radius: 0.25rem;
+    --radius-larger: 0.5em;
+
+    --transition: all 0.3s linear;
+    --transition-faster: all 0.1s linear;
+
+}
+@media (min-width: 880px) {
+    :root {
+        --fs-h1: 5.5rem;
+        --fs-h2: 4.75rem;
+        --fs-h3: 2.75rem;
+        --fs-h4: 1.75rem;
+        --fs-body: 1.125rem;
+    }
+}
+/****************************General Styles*******************************/
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: var(--clr-light-background);;
+    color: var(--clr-light);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+img {
+    max-width: 100%;
+}
+strong {
+    font-weight: var(--fw-bold);
+}
+p {
+    margin: 0;
+}
+
+/**************************** Typography *******************************/
+
+h1,
+h2,
+h3 {
+    line-height: 1.6;
+    margin: 0;
+}
+h1 {
+    font-size: var(--fs-h1);
+}
+h2 {
+    font-size: var(--fs-h2);
+}
+h3 {
+    font-size: var(--fs-h3);
+}
+h4 {
+    font-size: var(--fs-h4);
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-top {
+    height: 56%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    background-image: url("../src/Assets/Image/pexels-simon-berger-1323550.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.app-bottom {
+    height: 44%;
+    width: 100%;
+    color: var(--clr-dark);
+    padding: 1.5rem 3.75rem;
+    background-color: var(--clr-blue);
+}
+.current-data {
+    padding: 2rem 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.current-temp {
+    font-size: var(--fs-h1);
+}
+.option-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
