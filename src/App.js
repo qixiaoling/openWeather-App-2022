@@ -6,9 +6,8 @@ import ForecastTab from "./Page/Forecasts/ForecastTab";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import TodayTab from "./Page/TodayTab/TodayTab";
 import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
-import {kelvinToCelsius} from "./helper/kelvinToCelsius";
 import MetricSlider from "./Component/MetricSlider/MetricSlider";
-import {TempContext} from "./Context/TempContext";
+import {TempContext} from "./Context/TempContextProvider";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -17,8 +16,8 @@ function App() {
     const [location, setLocation] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    // const {defineMethodsBasedOnSelectedMetric} = useContext(TempContext);
 
+    const { kelvinToMetric } = useContext(TempContext);
     useEffect(() => {
         if (location) {
             fetchDataWeather();
@@ -54,7 +53,7 @@ function App() {
                         <>
                             <h3>{weatherData.weather[0].description}</h3>
                             <p>{weatherData.name}</p>
-                            <p className="current-temp">{kelvinToCelsius(weatherData.main.temp)}</p>
+                            <p className="current-temp">{kelvinToMetric(weatherData.main.temp)}</p>
                         </>
                         }
                     </div>

@@ -1,3 +1,9 @@
+/*there are 3 ways:*/
+/*1. Nova uses lable and use that label to be the switch-btn;*/
+/*2. define another div, use that as the switch-btn;*/
+/*3. In below case, Youtuber John Komarnicki uses only 1 input tag, the switch-btn is actually the suedo element.*/
+
+
 .metric-container {
     width: 30%;
     display: flex;

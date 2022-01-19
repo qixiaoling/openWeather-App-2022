@@ -2,14 +2,15 @@ import React, {useContext, useEffect, useState} from 'react';
 import axios from "axios";
 import {createDateString} from "../../helper/createDateString";
 import './ForecastTab.css';
-import {TempContext} from "../../Context/TempContext";
-import {kelvinToCelsius} from "../../helper/kelvinToCelsius";
+import {TempContext} from "../../Context/TempContextProvider";
+
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 function ForecastTab({coordinates}) {
     const [forecastData, setForecastData] = useState([]);//is array
     const [error, setError] = useState(false);
-    // const{defineMethodsBasedOnSelectedMetric} = useContext(TempContext)
+    const {kelvinToMetric} = useContext(TempContext);
+
     useEffect(()=>{
         async function fetchForecastData() {
             setError(false);
@@ -41,7 +42,7 @@ function ForecastTab({coordinates}) {
                     <article key={forecast.dt} className='single-forecast'>
                         <p className='forecast-weekday'>{createDateString(forecast.dt)}</p>
                         <div className='forecast-subGroup'>
-                            <p className='forecast-temp'>{kelvinToCelsius(forecast.temp.day)}</p>
+                            <p className='forecast-temp'>{kelvinToMetric(forecast.temp.day)}</p>
                             <p className='forecast-desc'>{forecast.weather[0].description}</p>
                         </div>
                     </article>
