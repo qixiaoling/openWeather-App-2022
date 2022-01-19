@@ -4,7 +4,7 @@ import {TempContext} from "../../Context/TempContextProvider";
 
 
 function MetricSlider() {
-    const [checked, toggleChecked] = useState(false);
+    const [checked, toggleChecked] = useState(true);
     const {toggleTemp} = useContext(TempContext);
 
     useEffect(() => {
