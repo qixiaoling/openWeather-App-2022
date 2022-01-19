@@ -7,8 +7,7 @@ function WeatherDetails({description, type, temp}) {
     return(
             <div className='hour-data'>
                 <p>{kelvinToCelsius(temp)}</p>
-                <span className='hour-image' style={{height:'20px',
-                    width: '50px'}}>{IconMapper(type)}</span>
+                <span className='hour-image' >{IconMapper(type)}</span>
                 <p>{description}</p>
             </div>
     )
