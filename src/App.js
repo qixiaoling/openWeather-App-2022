@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import TodayTab from "./Page/TodayTab/TodayTab";
 import TabBarMenu from "./Component/TabBarMenu/TabBarMenu";
 import {kelvinToCelsius} from "./helper/kelvinToCelsius";
+import MetricSlider from "./Component/MetricSlider/MetricSlider";
 
 const apiMonkey = 'e95585502d1432e56ded4de2298185a9';
 
@@ -59,7 +60,10 @@ function App() {
 
                 <Router>
                     <div className='app-bottom'>
-                        <TabBarMenu/>
+                        <div className='option-wrapper'>
+                            <TabBarMenu/>
+                            <MetricSlider/>
+                        </div>
                         <Switch>
                             <Route path='/today' exact={true}>
                                 <TodayTab coordinates={weatherData && weatherData.coord}/>

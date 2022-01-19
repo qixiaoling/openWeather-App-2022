@@ -46,10 +46,7 @@ function TodayTab({coordinates}) {
                 return (
                     <article key={hour.dt} className='single-hour'>
                         <WeatherDetails temp={hour.temp} description={hour.weather[0].description} type={hour.weather[0].main}/>
-                        <div className='hour'>
-                            <p>{createTimeString(hour.dt)}</p>
-                        </div>
-
+                        <p className='hour'>{createTimeString(hour.dt)}</p>
                     </article>
                 )
             })}

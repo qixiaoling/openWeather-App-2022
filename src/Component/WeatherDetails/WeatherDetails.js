@@ -6,9 +6,9 @@ import './WeatherDetails.css';
 function WeatherDetails({description, type, temp}) {
     return(
             <div className='hour-data'>
-                <p>{kelvinToCelsius(temp)}</p>
                 <span className='hour-image' >{IconMapper(type)}</span>
                 <p>{description}</p>
+                <p>{kelvinToCelsius(temp)}</p>
             </div>
     )
 }

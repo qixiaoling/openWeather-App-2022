@@ -2,6 +2,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    padding: 0;
 }
 :root {
     --ff-primary: 'Montserrat', sans-serif;
@@ -109,7 +110,8 @@ h4 {
     height: 44%;
     width: 100%;
     color: var(--clr-dark);
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 3.75rem;
+    background-color: var(--clr-blue);
 }
 .current-data {
     padding: 2rem 0;
@@ -123,6 +125,9 @@ h4 {
 .current-temp {
     font-size: var(--fs-h1);
 }
-.app-bottom {
-    background-color: var(--clr-blue);
+.option-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
