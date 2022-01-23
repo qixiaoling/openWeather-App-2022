@@ -105,7 +105,7 @@ h4 {
 }
 @media (min-width: 880px) {
     .app-container {
-        width: 50vw;
+        width: 75vw;
         height: 90vh;
         margin-top: 2rem;
     }
