@@ -16,7 +16,7 @@ li{
     text-decoration: none;
     color: var(--clr-light);
     font-weight: 600;
-    padding: 0 0 16px 0;
+    padding: 0 0 10px 0;
     cursor: pointer;
 
 }

@@ -1,12 +1,11 @@
 .todayTab-container {
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
     height: 75%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 12px;
+    grid-column-gap: 0;
     align-content: stretch;
-
-
 }
 .single-hour {
     height: 100%;
