@@ -128,7 +128,7 @@ h4 {
     height: 44%;
     width: 100%;
     color: var(--clr-dark);
-    padding: 1.5rem 3.75rem;
+    padding: 1.5rem 1.75rem;
     background-color: var(--clr-blue);
 }
 .current-data {
